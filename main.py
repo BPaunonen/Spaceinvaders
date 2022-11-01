@@ -2,7 +2,8 @@ import pygame
 from ship import Ship
 from settings import Settings
 from events import Events
-from bullet import Bullet
+
+
 class SpaceInvaders:
     def __init__(self):
         pygame.init()
@@ -13,8 +14,6 @@ class SpaceInvaders:
         self.ship = Ship(self)
         self.events = Events()
 
-        
-               
     def run(self):
         while True:
             self.events.check_keys(self.ship)

@@ -21,8 +21,9 @@ class Ship:
         self.screen.blit(self.image, self.rect)
         
     def fire_bullet(self):
-        new_bullet = Bullet(self, self.game)
-        self.bullets.add(new_bullet) # lisätään new_bullet sprite-grouppiin
+        if len(self.bullets) < self.settings.bullets_allowed:
+            new_bullet = Bullet(self, self.game)
+            self.bullets.add(new_bullet) # lisätään new_bullet sprite-grouppiin
         
     def update_bullets(self):
         self.bullets.update()# kutsuu kaikkien bullet instanssien update  metodia
