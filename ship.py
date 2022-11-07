@@ -57,5 +57,8 @@ class Ship:
         elif self.moving_left and self.rect.left > 0:
             self.x -= self.settings.ship_speed
         
+        if pygame.sprite.spritecollideany(self,  self.game.aliens):
+            print("Crash")
+        
         #napataan talteen pelkkä kokonaisluku desimaaluluvusta    
         self.rect.x = self.x
