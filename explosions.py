@@ -6,7 +6,7 @@ class Explosion(Sprite):
         super().__init__()
         self.anim = {}
         self.anim['alien'] = [] #dictionary, jotta voidaan esim.
-        #self.anim['ship'] = [] #asettaa eri animaatioita helposti      
+        self.anim['ship'] = [] #asettaa eri animaatioita helposti      
         self.frame = 0
         self.last_update = pygame.time.get_ticks()
         self.frame_rate = 50 #ms (1000ms = 1s)
@@ -17,10 +17,10 @@ class Explosion(Sprite):
             image = pygame.image.load("Spaceinvaders/images/"+filename).convert_alpha()
             scaled_image = pygame.transform.scale(image,(60,58))
             self.anim['alien'].append(scaled_image)
-    
+            self.anim['ship'].append(scaled_image)
+            
     def set_explosion_center_and_object(self,center,object):
-        self.object = object
-                              #'alien'                              
+        self.object = object #'alien'                              
         self.image = self.anim[self.object][0] #asetetaan 1.kuva
         self.rect = self.image.get_rect()
         self.rect.center = center

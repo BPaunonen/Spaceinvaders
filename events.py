@@ -1,11 +1,9 @@
 import pygame
 import sys
-import stats
-# sound = pygame.mixer.Sound('Spaceinvaders/images/blaster.wav')
+
+
 class Events:
-    # pygame.init()
-    # pygame.mixer.init(44100, -16,2,2512)
-    # pygame.time.sleep(5)
+    
     def check_keys(self, game_ship):       
     # vastaanotetaan näppäin- ja hiirikomentoja
         
@@ -22,8 +20,12 @@ class Events:
                 elif event.key == pygame.K_LEFT:
                     game_ship.moving_left = True
                 elif event.key == pygame.K_SPACE:
-                    # sound.play()
                     game_ship.fire_bullet()
+                elif event.key == pygame.K_UP:
+                    game_ship.moving_down = True
+                elif event.key == pygame.K_DOWN:
+                    game_ship.moving_up = True
+                    
                     
         
             elif event.type == pygame.KEYUP:
@@ -31,3 +33,7 @@ class Events:
                     game_ship.moving_right = False
                 elif event.key == pygame.K_LEFT:
                     game_ship.moving_left = False
+                elif event.key == pygame.K_UP:
+                    game_ship.moving_down = False
+                elif event.key == pygame.K_DOWN:
+                    game_ship.moving_up = False

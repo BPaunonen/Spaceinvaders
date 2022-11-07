@@ -3,7 +3,6 @@ from pygame.sprite import Sprite
 
 class Bullet(Sprite):
     total_number_of_bullets = 0
-    pygame.mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=512)
     def __init__(self, ship, game):
         super().__init__() #call sprite class constructor
         self.screen = game.screen
